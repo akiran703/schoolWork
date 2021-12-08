@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Dashboard
+{% endblock %}
+
+{%block content%} 
+<div class="jumbotron text-center">
+    <h1>
+        FITNESS PLANNER
+    </h1>
+    
+    <b>What do you want to do?</b>
+</div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <h3><span class="glyphicon glyphicon-search"></span> Search</h3>
+        <nav>
+            <span><a href="{{'searchDish'}}">Search Dish</a></span> |
+            <span><a href="{{'searchExercise'}}"> Search Exercise</a></span> 
+        </nav>
+      </div>
+      <div class="col-sm-3">
+        <h3><span class="glyphicon glyphicon-pencil"></span> Input</h3>
+        <nav>
+            <span><a href="{{'inputyourowndish'}}"> Input your own dish</a></span> |
+            <span><a href="{{'inputyourownexercise'}}"> Input your own exercise</a></span>
+        </nav> 
+      </div>
+      <div class="col-sm-3">
+        <h3><span class="glyphicon glyphicon-trash"></span> Delete</h3>
+        <nav>
+            <span><a href="{{'deleteplandish'}}"> Delete dish </a></span> |
+            <span><a href="{{'deleteplanexercise'}}"> Delete exercise </a></span>
+        </nav>   
+      </div>
+      <div class="col-sm-3">
+        <h3><span class="glyphicon glyphicon-calendar"></span> Week Plan</h3>
+                 <nav>
+                <span><a href="{{'weekplan'}}"> <strong>SET</strong> up week plan</a></span> |
+                <span><a href="{{'save'}}"> <strong>SHOW</strong> week plan</a></span>
+            </nav> 
+      </div>
+    </div>
+    <div class="row">
+        <a href="{{'logout'}}"><button><span class="glyphicon glyphicon-log-out"></span> Log Out</button></a>
+  </div>
+
+{% endblock %}
+

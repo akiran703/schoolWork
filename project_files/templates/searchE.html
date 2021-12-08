@@ -1,0 +1,49 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Search Exercise
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+
+    <h1>Search for exercise</h1>
+    <form method = "POST">
+        Type exercise keyword
+        <input type = "text", autofocus = "autofocus" name="search_string">
+        Filter By 
+        <SELECT name="filter" formaction = "/searchExercise">
+            <OPTION value="">---Choose---</option>
+            <OPTION value="arms">Arms</option>
+            <OPTION value="back">Back</option>
+            <OPTION value="core">Core</option>
+            <OPTION value="full body">Full Body</option>
+            <OPTION value="legs">Legs</option>
+        </SELECT>
+
+        <input class="button1" type="submit" value="Search">
+    </form>
+
+    <br>
+    <br>  
+    <table>
+        <thead>
+            <tr>
+                <th>Exercise</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for row in results%}
+            <tr>
+                <td> {{row[0]}} 
+                <a href="viewExercise/{{row[0]}}">View Exercise</a></td>
+                
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{% endblock %}

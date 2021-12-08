@@ -1,0 +1,106 @@
+{% extends "bootstrap/base.html"%}
+{%import "bootstrap/wtf.html" as wtf %}
+
+{%block title%}
+    Week Plan Page
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+
+    <h1> Week in a view! </h1>
+    <br>
+    <table class="table table-bordered table-dark">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Number of Dish</th>
+            <th scope="col">Number of Exercise</th>
+        </tr>
+        </thead>
+        <tbody>
+            {%for row in count%}
+            <tr>
+                {% for data in row %}
+                <td>{{data}} </td>
+            {%endfor%}
+            
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <table class="table table-bordered table-dark">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Number of Dish</th>
+            <th scope="col">Number of Exercise</th>
+        </tr>
+        </thead>
+        <tbody>
+            {%for row in count2%}
+            <tr>
+                {% for data in row %}
+                <td>{{data}} </td>
+            {%endfor%}
+            
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br><br>
+
+    <details>
+        <summary style = "display: list-item">
+            <b>Click Here For More Detailed Week Plan</b>
+        </summary>
+        <table class="table table-bordered table-dark">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Dish</th>
+                <th scope="col">Exercise</th>
+                <th scope="col">Day</th>
+            </tr>
+            </thead>
+            <tbody>
+                {%for row in results%}
+                <tr>
+                    {% for data in row %}
+                    <td>{{data}} </td>
+                {%endfor%}
+                
+
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <table class="table table-bordered table-dark">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Dish</th>
+                <th scope="col">Exercise</th>
+                <th scope="col">Day</th>
+            </tr>
+            </thead>
+            <tbody>
+                {%for row in results2%}
+                <tr>
+                    {% for data in row %}
+                    <td>{{data}} </td>
+                {%endfor%}
+                
+
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        </details>
+    <br><br>
+    <a href="{{url_for('saveOutline')}}">Show Week Plan</a><br>
+
+{% endblock %}

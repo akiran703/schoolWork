@@ -1,0 +1,60 @@
+{% extends "bootstrap/base.html"%}
+{%import "bootstrap/wtf.html" as wtf %}
+
+{%block title%}
+    Input Exercise
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+<h1>Input your own exercise</h1>
+    <div class = "container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              
+              {{ wtf.form_field(form.exercise) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.equipment) }}
+              </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.exerciseType) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.MajorMuscle) }}
+              </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.MinorMuscle) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.Example) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.Notes) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.Modifications) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.usernameid) }}
+            </div>
+            
+        
+            {{ wtf.form_field(form.submit) }}
+          
+           
+          </form>
+    </div>
+{% endblock %}

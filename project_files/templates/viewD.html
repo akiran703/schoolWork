@@ -1,0 +1,30 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    View Recipe
+{% endblock %}
+
+{%block content%} 
+
+    {% for row in results %}
+        <h3> Information about {{ row[0] }} <br> </h3>
+        <b> Time To Cook (minutes): </b>  {{ row[2] }} <br> 
+        <b> Nutrition: </b> {{ row[5] }} <br> 
+        <b> Steps: </b> {{ row[7] }} <br> 
+        <b> Description: </b> {{ row[8] }} <br> 
+        <b> Ingredients: </b> {{ row[9] }} <br> 
+    {% endfor %}
+
+    <br>
+    <hr style="width:50%", size="10", color="black">
+    Fill up the form to save the exercise: <br>
+        <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.name }}
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+    <br>
+    <a href="{{url_for('searchDish')}}">Search Again</a><br>      
+    <a href="{{url_for('dashboard')}}">Back to Dashboard</a><br> 
+{%endblock%}

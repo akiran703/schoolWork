@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html"%}
+{%import "bootstrap/wtf.html" as wtf %}
+
+{%block title%}
+    Login Page
+{% endblock %}
+
+{%block content%} 
+<h1>Member Login</h1>
+    <div class = "container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.submit) }}
+        </form>
+        <br>
+        <a href="{{url_for('register')}}">Dont have a account,make one</a>
+        <br>
+        <a href="{{url_for('home')}}">Back to home page</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Create Week Plan
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+    <h1>Create your plan</h1>
+
+    <h3>Currently you have saved 
+               <u> {% for item in session.pop('countE', []) %}
+                {{ item[0] }} 
+                {% endfor %} </u> 
+                exercise and 
+                <u> {% for item in session.pop('countD', []) %}
+                {{ item[0] }} 
+                {% endfor %} </u>
+                dishes 
+                </h3>
+    <br>
+    <details>
+        <summary style = "display: list-item">
+            <b>Click here to view your saved exercises and dishes</b>
+        </summary>
+        <h4>Exercises</h4>
+        {% for item in session.pop('exercisestuff', []) %}
+        <ul>
+         <li>{{ item[0] }} </li>
+        </ul>
+        {% endfor %}
+        
+        <h4>Dishes</h4>
+        {% for item in session.pop('dishstuff', []) %}
+        <ul>
+            <li>{{ item[0] }} </li>
+        </ul>
+        {% endfor %}
+    </details>
+    <br><br>
+
+    <hr style="width:50%", size="10", color="black">
+    <strong> Fill up the form to add a plan into your week </strong>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+        {{ form.day }}
+        {{ form.exercise }}
+        {{ form.dish }}
+
+        {{ form.submit }}
+    </form>    
+    <br><br>
+    <a href="{{url_for('saveOutline')}}">Show Week Plan</a><br>
+
+{% endblock %}

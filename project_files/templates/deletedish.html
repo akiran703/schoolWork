@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Delete Dish
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+
+    <h1>Delete Dish</h1>
+
+    <h2>Dishes</h2>
+    {% for item in session.pop('dishstuff', []) %}
+    <ul>
+        <li> {{ item[0] }} </li>
+    </ul>
+    {% endfor %}
+
+    <br> <br>
+    <hr style="width:25%", size="5", color="black">
+    Fill up the form to delete the exercise:
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            {{ form.password }}
+            {{ form.dish }}
+            {{ form.submit }}
+        </form>    
+    <br><br>
+
+{%endblock%}

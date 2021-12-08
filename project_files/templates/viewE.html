@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    View Exercise
+{% endblock %}
+
+{%block content%} 
+
+    {% for row in results %}
+        <h3> Information about {{ row[0] }} <br> </h3>
+        <b> Equipment: </b>  {{ row[1] }} <br> 
+        <b> Exercise Type: </b> {{ row[2] }} <br> 
+        <b> Example: </b> {{ row[3] }} <br> 
+        <b> Notes: </b> {{ row[4] }} <br> 
+        <b> Modifications: </b> {{ row[5] }} <br> 
+    {% endfor %}
+
+    <br>
+    <hr style="width:50%", size="10", color="black">
+    Fill up the form to save the exercise: <br>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.name }}
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+    <br>
+    <a href="{{url_for('searchExercise')}}">Search Again</a><br>      
+    <a href="{{url_for('dashboard')}}">Back to Dashboard</a><br>      
+
+{%endblock%}

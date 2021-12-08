@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Home Page
+{% endblock %}
+
+{%block content%} 
+<div class="jumbotron text-center">
+    <h1>Welcome To Fitness Planner</h1>
+    <i>where you can plan your exercises and meals for the week by searching/adding exercises and recipes </i>
+</div>
+<div class="container">
+<div class="row">
+    <div class="col-sm-7" style = "text-align: center;">
+        <h3><span class="glyphicon glyphicon-info-sign"></span></h3>
+        <p><b> To get started, please create an account </p> 
+        <a href="{{url_for('register')}}"><button>Register</button></a>
+
+    </div>
+    <div class="col-sm-3" style = "text-align: center;">
+        <h3><span class="glyphicon glyphicon-user"></span></h3>
+        <b> Returning user? </b><br> 
+        <a href="{{url_for('login')}}"><button>Go to Login Page</button></a>
+
+    </div>
+  </div>
+</div>
+<br>
+{%endblock%}

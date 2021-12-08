@@ -1,0 +1,78 @@
+
+{% extends "bootstrap/base.html"%}
+{%import "bootstrap/wtf.html" as wtf %}
+
+{%block title%}
+    Input Dish
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+<h1>Input your own dishes</h1>
+    <div class = "container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              
+              {{ wtf.form_field(form.name) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.id) }}
+              </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.minutes) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.contributor_id) }}
+              </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.submitted) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.tags) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.nutrition) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.steps) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.n_steps) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.description) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.ingredients) }}
+            </div>
+            <div class="form-group">
+                
+                {{ wtf.form_field(form.n_ingredients) }}
+            </div>
+            <div class="form-group">
+               
+                {{ wtf.form_field(form.usernameid) }}
+            </div>
+        
+            {{ wtf.form_field(form.submit) }}
+          
+           
+          </form>        
+    </div>
+    <a href="{{'dashboard'}}">Go back to dashboard</a>
+
+{% endblock %}

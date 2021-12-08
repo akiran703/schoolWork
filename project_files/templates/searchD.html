@@ -1,0 +1,50 @@
+{% extends "bootstrap/base.html"%}
+
+{%block title%}
+    Search Dish
+{% endblock %}
+
+{%block navbar%}
+    {% include "nav.html"%}
+{% endblock %}
+
+{%block content%} 
+    <h1>Search for recipes</h1>
+    <br>
+    <form method = "POST">
+        Type recipe keyword
+        <input type = "text", autofocus = "autofocus" name="search_string">
+        Filter By 
+        <SELECT name="filter" formaction = "/searchDish">
+            <OPTION value="">---Choose---</option>
+            <OPTION value="healthy">Healthy</option>
+            <OPTION value="desserts">Desserts</option>
+            <OPTION value="easy">Easy</option>
+            <OPTION value="dietary">Dietary</option>
+            <OPTION value="vegetarian">Vegetarian</option>
+            <OPTION value="gluten-free">Gluten-free</option>
+            <OPTION value="low-calorie">Low-calorie</option>
+        </SELECT>
+
+        <input class="button" type="submit" value="Search">
+    </form>
+
+    <br>
+    <br>   
+    <table>
+        <thead>
+            <tr>
+                <th>Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for row in results%}
+            <tr>
+                <td> {{row[0]}} 
+                <a href="viewDish/{{row[0]}}">View Recipe</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+
+{%endblock%}
